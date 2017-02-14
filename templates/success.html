@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success - Email Validation</title>
+</head>
+<body>
+	<h1>Success!</h1>
+	<h3>Email Address Entered:</h3>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for message in messages %}
+	<p>
+		{{message}}
+	</p>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+	<table>
+		<thead>
+			<th>Email:</th>
+			<th>Date and Time created</th>
+		</thead>
+		<tbody>
+			{% for email in users %}
+			<tr>
+				<td>{{email["email_address"]}}</td>
+				<td>{{email["created_at"]}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>
